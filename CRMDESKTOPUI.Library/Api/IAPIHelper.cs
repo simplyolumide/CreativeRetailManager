@@ -1,10 +1,12 @@
-﻿using CRMDesktopUI.Models;
+﻿
+using CRMDesktopUI.Models;
 using System.Threading.Tasks;
 
-namespace CRMDesktopUI.Helpers
+namespace CRMDESKTOPUI.Library.Api
 {
     public interface IAPIHelper
     {
         Task<AuthenticatedUser> Authenticate(string username, string password);
+        Task GetLoggedInUserInfo(string token);
     }
 }

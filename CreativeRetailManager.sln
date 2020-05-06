@@ -9,6 +9,10 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CRMData", "CRMData\CRMData.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMDesktopUI", "CRMDesktopUI\CRMDesktopUI.csproj", "{C0A4730C-3DBA-48B4-8C3B-B264C385F4A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMDataManager.Library", "CRMDataManager.Library\CRMDataManager.Library.csproj", "{F41FE589-176D-48EF-8F8E-67EC888FEC0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMDESKTOPUI.Library", "CRMDESKTOPUI.Library\CRMDESKTOPUI.Library.csproj", "{5BCD0C3F-6866-45BE-8BAC-D30B3F467835}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,14 @@ Global
 		{C0A4730C-3DBA-48B4-8C3B-B264C385F4A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0A4730C-3DBA-48B4-8C3B-B264C385F4A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0A4730C-3DBA-48B4-8C3B-B264C385F4A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F41FE589-176D-48EF-8F8E-67EC888FEC0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F41FE589-176D-48EF-8F8E-67EC888FEC0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F41FE589-176D-48EF-8F8E-67EC888FEC0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F41FE589-176D-48EF-8F8E-67EC888FEC0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BCD0C3F-6866-45BE-8BAC-D30B3F467835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BCD0C3F-6866-45BE-8BAC-D30B3F467835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BCD0C3F-6866-45BE-8BAC-D30B3F467835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BCD0C3F-6866-45BE-8BAC-D30B3F467835}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
