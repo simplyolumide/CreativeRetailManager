@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using CRMDesktopUI.EventModels;
 using CRMDesktopUI.Helpers;
 using CRMDESKTOPUI.Library.Api;
 using System;
@@ -14,9 +15,11 @@ namespace CRMDesktopUI.ViewModels
 		private string _userName;
 		private string _password;
 		private IAPIHelper _apiHelper;
-		public LoginViewModel(IAPIHelper apiHelper)
+		private IEventAggregator _events;
+		public LoginViewModel(IAPIHelper apiHelper, IEventAggregator events)
 		{
 			_apiHelper = apiHelper;
+			_events = events;
 		}
 		public string UserName
 		{
@@ -103,6 +106,7 @@ namespace CRMDesktopUI.ViewModels
 
 				// Capture more information about the user
 				await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+				_events.PublishOnUIThread(new LogOnEvent());
 			}
 			catch (Exception ex)
 			{
