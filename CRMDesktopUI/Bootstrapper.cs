@@ -2,6 +2,7 @@
 using CRMDesktopUI.Helpers;
 using CRMDesktopUI.ViewModels;
 using CRMDESKTOPUI.Library.Api;
+using CRMDESKTOPUI.Library.Helpers;
 using CRMDESKTOPUI.Library.Models;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,7 @@ namespace CRMDesktopUI
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
                 .Singleton<ILoggedInUserModel, LoggedInUserModel>()
+                .Singleton<IConfigHelper, ConfigHelper>()
                 .Singleton<IAPIHelper, APIHelper>();
 
             GetType().Assembly.GetTypes()
