@@ -1,6 +1,5 @@
 ﻿using Caliburn.Micro;
 using CRMDESKTOPUI.Library.Api;
-using CRMDESKTOPUI.Library.Helpers;
 using CRMDESKTOPUI.Library.Models;
 using System;
 using System.Collections.Generic;
@@ -14,12 +13,10 @@ namespace CRMDesktopUI.ViewModels
     public class SalesViewModel : Screen
     {
 		IProductEndpoint _productEndpoint;
-		IConfigHelper _configHelper;
-		public   SalesViewModel(IProductEndpoint productEndpoint, IConfigHelper configHelper)
+		public   SalesViewModel(IProductEndpoint productEndpoint)
 		{
 			_productEndpoint = productEndpoint;
-
-			_configHelper = configHelper;
+			
 		}
 
 		protected override async void OnViewLoaded(object view)
@@ -87,53 +84,34 @@ namespace CRMDesktopUI.ViewModels
 		public string SubTotal
 		{
 			get {
+				decimal subTotal = 0;
+				foreach (var item in Cart)
+				{
+					subTotal += (item.Product.RetailPrice * item.QuantityInCart);
+				}
 				
-				return CalculateSubTotal().ToString("C"); 
+				return subTotal.ToString("#"); 
 			}
 			
 		}
 
-		private decimal CalculateSubTotal()
-		{
-			decimal subTotal = 0;
-			foreach (var item in Cart)
-			{
-				subTotal += (item.Product.RetailPrice * item.QuantityInCart);
-			}
-			return subTotal;
-		}
 
-		private decimal CalculateTax()
-		{
-			decimal taxAmount = 0;
-			decimal taxRate = _configHelper.GetTaxRate()/100;
-			foreach (var item in Cart)
-			{
-				if (item.Product.IsTaxable)
-				{
-					taxAmount += (item.Product.RetailPrice * item.QuantityInCart * taxRate);
-				}
-			}
-
-			return taxAmount;
-		}
 		public string Tax
 		{
 			get
 			{
-				
-
-				return CalculateTax().ToString("C");
+				//Replace it with calculated value
+				return "#0.00";
 			}
+
 		}
 
-	
 		public string Total
 		{
 			get
 			{
-				decimal total = CalculateSubTotal() + CalculateTax();
-				return total.ToString("C");
+				//Replace it with calculated value
+				return "#0.00";
 			}
 
 		}
@@ -185,8 +163,7 @@ namespace CRMDesktopUI.ViewModels
 			SelectedProduct.QuantityInStock -= ItemQuantity;
 			ItemQuantity = 1;
 			NotifyOfPropertyChange(() => SubTotal);
-			NotifyOfPropertyChange(() => Tax);
-			NotifyOfPropertyChange(() => Total);
+			NotifyOfPropertyChange(() => existingItem.DisplayText);
 
 		}
 
@@ -205,10 +182,7 @@ namespace CRMDesktopUI.ViewModels
 
 		public void RemoveFromCart()
 		{
-			NotifyOfPropertyChange(() => SubTotal);
-			NotifyOfPropertyChange(() => Tax);
-			NotifyOfPropertyChange(() => Total);
-
+			NotifyOfPropertyChange(() => CanAddToCart);
 		}
 
 		public bool CanCheckOut
