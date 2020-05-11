@@ -21,4 +21,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="ProductName" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="3be4f9c2-a204-4d25-8eb6-d48edd083305" ChangeDateTime="05/11/2020 10:30:46">
+    <Property Name="ElementName" Value="[dbo].[FK_SaleDetail_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[SaleDetail]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_SaleDetail_ToSale]" />
+  </Operation>
 </Operations>
